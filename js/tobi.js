@@ -2,7 +2,7 @@
  * Tobi
  *
  * @author rqrauhvmra
- * @version 1.7.2
+ * @version 1.7.1
  * @url https://github.com/rqrauhvmra/Tobi
  *
  * MIT License
@@ -79,10 +79,7 @@
         keyboard: true,
         zoom: true,
         zoomText: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>',
-<<<<<<< HEAD
         zoomSize: true,
-=======
->>>>>>> 5c25d86df90c59c0913afbee85797d39a610f152
         docClose: true,
         swipeClose: true,
         scroll: false,
@@ -526,13 +523,10 @@
         slider.style.cursor = '-webkit-grab'
       }
 
-<<<<<<< HEAD
       if (config.zoomSize) {       
           window.addEventListener('mousewheel', zoomSize)     
       }
 
-=======
->>>>>>> 5c25d86df90c59c0913afbee85797d39a610f152
       // Save the user’s focus
       lastFocus = document.activeElement
 
@@ -571,13 +565,10 @@
         document.body.classList.remove('tobi-is-open')
       }
 
-<<<<<<< HEAD
       if (config.zoomSize) {
         window.removeEventListener('mousewheel', zoomSize)
       }
 
-=======
->>>>>>> 5c25d86df90c59c0913afbee85797d39a610f152
       // Unbind events
       unbindEvents()
 
@@ -887,7 +878,6 @@
 
       pointerDown = true
       drag.startX = event.pageX
-      drag.startY = event.pageY
       slider.style.cursor = '-webkit-grabbing'
     }
 
@@ -900,8 +890,6 @@
 
       if (pointerDown) {
         drag.endX = event.pageX
-        drag.endY = event.pageY
-
         slider.style[transformProperty] = 'translate3d(' + (offsetTmp - Math.round(drag.startX - drag.endX)) + 'px, 0, 0)'
       }
     }
@@ -1039,7 +1027,7 @@
       add: add,
       reset: reset,
       isOpen: isOpen,
-      version: '1.7.2'
+      version: '1.7.1'
     }
   }
 
