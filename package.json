@@ -1,0 +1,32 @@
+{
+  "name": "rqrauhvmra__tobi",
+  "version": "1.7.1",
+  "description": "An accessible, simple and light-weight open source lightbox script with no dependencies.",
+  "main": "js/tobi.js",
+  "style": "css/tobi.css",
+  "devDependencies": {
+    "standard": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rqrauhvmra/Tobi.git"
+  },
+  "keywords": [
+    "lightbox",
+    "accessible",
+    "a11y",
+    "javascript",
+    "vanilla",
+    "scss",
+    "css"
+  ],
+  "author": "rqrauhvmra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rqrauhvmra/Tobi/issues"
+  },
+  "homepage": "https://github.com/rqrauhvmra/Tobi"
+}

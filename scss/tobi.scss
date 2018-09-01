@@ -1,0 +1,298 @@
+$zoomIconBackground: #0437fd;
+$zoomIconColor: #fff;
+
+$overlayBackground: rgba(0, 0, 0, .8);
+
+$figcaptionBackground: rgba(0, 0, 0, .8);
+$figcaptionColor: #fff;
+
+$counterBackground: transparent;
+$counterColor: #fff;
+
+$buttonBackground: transparent;
+$buttonColor: #fff;
+
+$loaderColor: #0437fd;
+
+$iframeHeight: 85vh;
+$iframeWidth: 85vw;
+
+/* Link */
+.tobi-zoom {
+  border: 0;
+  box-shadow: none;
+  display: block;
+  position: relative;
+  text-decoration: none;
+
+
+  & img {
+    display: block;
+  }
+
+  &__icon {
+    align-items: center;
+    background-color: $zoomIconBackground;
+    bottom: 0;
+    color: $zoomIconColor;
+    display: flex;
+    justify-content: center;
+    line-height: 1;
+    position: absolute;
+    right: 0;
+
+
+    & svg {
+      height: 1.111em;
+      padding-bottom: .222em;
+      padding-left: .222em;
+      padding-right: .222em;
+      padding-top: .222em;
+      pointer-events: none;
+      width: 1.111em;
+    }
+  }
+}
+
+/* Hide scrollbar if lightbox is displayed */
+.tobi-is-open {
+  overflow-y: hidden;
+}
+
+/* Lightbox */
+.tobi {
+  bottom: 0;
+  box-sizing: border-box;
+  contain: strict;
+  font-size: 18px;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1337;
+
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  & *,
+  & *::before,
+  & *::after {
+    box-sizing: inherit;
+  }
+}
+
+/* Overlay */
+.tobi__overlay {
+  background-color: $overlayBackground;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+/* Slider */
+.tobi__slider {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: transform .3s cubic-bezier(.19, 1, .22, 1);
+  will-change: transform;
+}
+
+/* Slide */
+.tobi__slider__slide {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+
+
+  & .tobi__slider__slide__content {
+    max-height: 85vh;
+    max-width: 85vw;
+  }
+
+  & .tobi-html {
+    max-height: 85vh;
+    overflow: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  & figure {
+    margin: 0;
+    max-width: 100%;
+    position: relative;
+  }
+
+  & img {
+    display: block;
+    height: auto;
+    max-height: 85vh;
+    max-width: 85vw;
+    width: auto;
+  }
+
+  & iframe {
+    height: $iframeHeight;
+    width: $iframeWidth;
+  }
+
+  & video {
+    max-height: 85vh;
+    max-width: 85vw;
+  }
+
+  & figcaption {
+    background-color: $figcaptionBackground;
+    bottom: 0;
+    color: $figcaptionColor;
+    display: block;
+    left: 0;
+    padding-bottom: .222em;
+    padding-left: .5em;
+    padding-right: .5em;
+    padding-top: .222em;
+    position: absolute;
+    white-space: pre-wrap;
+    width: 100%;
+  }
+}
+
+/* Buttons */
+.tobi button {
+  align-items: center;
+  appearance: none;
+  background-color: $buttonBackground;
+  border: .056em solid transparent;
+  color: $buttonColor;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  opacity: .5;
+  padding-top: .222em;
+  padding-left: .222em;
+  padding-right: .222em;
+  padding-bottom: .222em;
+  position: absolute;
+  transition: opacity .5s cubic-bezier(.19, 1, .22, 1);
+  will-change: opacity;
+
+
+  & svg {
+    pointer-events: none;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    opacity: 1;
+    transition: opacity .5s cubic-bezier(.19, 1, .22, 1);
+    will-change: opacity;
+  }
+
+  &.tobi__prev,
+  &.tobi__next {
+    top: 50%;
+    top: calc(50% - (4em / 2));
+
+
+    & svg {
+      height: 4em;
+      width: 4em;
+    }
+  }
+
+  &.tobi__prev {
+    left: 0;
+  }
+
+  &.tobi__next {
+    right: 0;
+  }
+
+  &.tobi__close {
+    right: 1em;
+    top: 1em;
+
+
+    & svg {
+      height: 2em;
+      width: 2em;
+    }
+  }
+
+  &:disabled,
+  &[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* Counter */
+.tobi__counter {
+  align-items: center;
+  background-color: $counterBackground;
+  color: $counterColor;
+  display: flex;
+  font-size: 1.111em;
+  height: 2em;
+  justify-content: center;
+  left: 1em;
+  position: absolute;
+  top: 1em;
+
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* Loader */
+.tobi-loader {
+  display: inline-block;
+  height: 5em;
+  left: 50%;
+  margin-left: -2.5em;
+  margin-top: -2.5em;
+  position: absolute;
+  top: 50%;
+  width: 5em;
+
+
+  &::before {
+    animation: spin 1s infinite;
+    border-radius: 100%;
+    border: .222em solid #fff;
+    border-top-color: $loaderColor;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    will-change: transform;
+    z-index: 1;
+  }
+}
+
+@keyframes spin {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
