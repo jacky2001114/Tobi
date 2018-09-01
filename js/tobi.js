@@ -79,7 +79,10 @@
         keyboard: true,
         zoom: true,
         zoomText: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>',
+<<<<<<< HEAD
         zoomSize: true,
+=======
+>>>>>>> 5c25d86df90c59c0913afbee85797d39a610f152
         docClose: true,
         swipeClose: true,
         scroll: false,
@@ -523,10 +526,13 @@
         slider.style.cursor = '-webkit-grab'
       }
 
+<<<<<<< HEAD
       if (config.zoomSize) {       
           window.addEventListener('mousewheel', zoomSize)     
       }
 
+=======
+>>>>>>> 5c25d86df90c59c0913afbee85797d39a610f152
       // Save the user’s focus
       lastFocus = document.activeElement
 
@@ -565,10 +571,13 @@
         document.body.classList.remove('tobi-is-open')
       }
 
+<<<<<<< HEAD
       if (config.zoomSize) {
         window.removeEventListener('mousewheel', zoomSize)
       }
 
+=======
+>>>>>>> 5c25d86df90c59c0913afbee85797d39a610f152
       // Unbind events
       unbindEvents()
 
