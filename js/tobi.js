@@ -2,7 +2,7 @@
  * Tobi
  *
  * @author rqrauhvmra
- * @version 1.7.1
+ * @version 1.7.2
  * @url https://github.com/rqrauhvmra/Tobi
  *
  * MIT License
@@ -887,6 +887,7 @@
 
       pointerDown = true
       drag.startX = event.pageX
+      drag.startY = event.pageY
       slider.style.cursor = '-webkit-grabbing'
     }
 
@@ -899,6 +900,8 @@
 
       if (pointerDown) {
         drag.endX = event.pageX
+        drag.endY = event.pageY
+
         slider.style[transformProperty] = 'translate3d(' + (offsetTmp - Math.round(drag.startX - drag.endX)) + 'px, 0, 0)'
       }
     }
@@ -1036,7 +1039,7 @@
       add: add,
       reset: reset,
       isOpen: isOpen,
-      version: '1.7.1'
+      version: '1.7.2'
     }
   }
 
