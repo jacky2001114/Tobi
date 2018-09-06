@@ -1023,19 +1023,23 @@
 
     var zoomSize = function zoomSize (event) {  
       Array.prototype.forEach.call(document.querySelectorAll('.tobi__slider__slide img'), function (element) {
-        if (parseInt(element.style.maxHeight) >= window.innerHeight * 0.8) {
-          element.style.maxHeight = (window.innerHeight * 0.8) + 'px'  
-        }    
-        element.style.maxHeight = element.clientHeight + (event.wheelDelta / 4) + 'px'
+        if (element.style.opacity == 1) { 
+          if (parseInt(element.style.maxHeight) >= window.innerHeight * 0.8) {
+            element.style.maxHeight = (window.innerHeight * 0.8) + 'px'  
+          }    
+          element.style.maxHeight = element.clientHeight + (event.wheelDelta / 4) + 'px'
+        }
       })
     }
 
     var zoomSizeforFirefox = function zoomSizeforFirefox (event) {  
       Array.prototype.forEach.call(document.querySelectorAll('.tobi__slider__slide img'), function (element) {
-        if (parseInt(element.style.maxHeight) >= window.innerHeight * 0.8) {
-          element.style.maxHeight = (window.innerHeight * 0.8) + 'px'  
-        }    
-        element.style.maxHeight = element.clientHeight + (event.detail * -10) + 'px'
+        if (element.style.opacity == 1) { 
+          if (parseInt(element.style.maxHeight) >= window.innerHeight * 0.8) {
+            element.style.maxHeight = (window.innerHeight * 0.8) + 'px'  
+          }      
+          element.style.maxHeight = element.clientHeight + (event.detail * -10) + 'px'
+        }
       })
     }
 
