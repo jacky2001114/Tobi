@@ -524,7 +524,12 @@
       }
 
       if (config.zoomSize) {       
-          window.addEventListener('mousewheel', zoomSize)     
+        if((navigator.userAgent).indexOf('Firefox') != -1){
+          window.addEventListener('DOMMouseScroll', zoomSizeforFirefox)
+          console.log('firefox start')
+        }else{
+          window.addEventListener('wheel', zoomSize)
+        }
       }
 
       // Save the user’s focus
@@ -566,7 +571,12 @@
       }
 
       if (config.zoomSize) {
-        window.removeEventListener('mousewheel', zoomSize)
+        if (navigator.userAgent.indexOf('Firefox') != -1){
+          window.removeEventListener('DOMMouseScroll', zoomSizeforFirefox)
+          console.log('close')
+        }else{
+          window.removeEventListener('wheel', zoomSize)
+        }
       }
 
       // Unbind events
@@ -1012,9 +1022,21 @@
     }
 
     var zoomSize = function zoomSize (event) {  
-      document.querySelectorAll('.tobi__slider__slide img').forEach(function (element) {
-        element.style.maxHeight = element.clientHeight + (event.wheelDelta / 2) + 'px'
-      })  
+      Array.prototype.forEach.call(document.querySelectorAll('.tobi__slider__slide img'), function (element) {
+        if (parseInt(element.style.maxHeight) >= window.innerHeight * 0.8) {
+          element.style.maxHeight = (window.innerHeight * 0.8) + 'px'  
+        }    
+        element.style.maxHeight = element.clientHeight + (event.wheelDelta / 4) + 'px'
+      })
+    }
+
+    var zoomSizeforFirefox = function zoomSizeforFirefox (event) {  
+      Array.prototype.forEach.call(document.querySelectorAll('.tobi__slider__slide img'), function (element) {
+        if (parseInt(element.style.maxHeight) >= window.innerHeight * 0.8) {
+          element.style.maxHeight = (window.innerHeight * 0.8) + 'px'  
+        }    
+        element.style.maxHeight = element.clientHeight + (event.detail * -10) + 'px'
+      })
     }
 
     init(userOptions)
