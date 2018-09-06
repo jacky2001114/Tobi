@@ -524,10 +524,9 @@
       }
 
       if (config.zoomSize) {       
-        if((navigator.userAgent).indexOf('Firefox') != -1){
+        if (navigator.userAgent.indexOf('Firefox') != -1) {
           window.addEventListener('DOMMouseScroll', zoomSizeforFirefox)
-          console.log('firefox start')
-        }else{
+        } else {
           window.addEventListener('wheel', zoomSize)
         }
       }
@@ -573,8 +572,7 @@
       if (config.zoomSize) {
         if (navigator.userAgent.indexOf('Firefox') != -1){
           window.removeEventListener('DOMMouseScroll', zoomSizeforFirefox)
-          console.log('close')
-        }else{
+        } else {
           window.removeEventListener('wheel', zoomSize)
         }
       }
